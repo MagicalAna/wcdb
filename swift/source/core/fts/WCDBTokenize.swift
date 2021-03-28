@@ -162,14 +162,15 @@ public final class WCDBCursorInfo: CursorInfoBase {
             return SQLITE_OK
         }
         var optionalLemma: String? = nil
-        string.enumerateLinguisticTags(in: string.startIndex..<string.endIndex,
-                                       scheme: NSLinguisticTagScheme.lemma.rawValue,
-                                       options: NSLinguisticTagger.Options.omitWhitespace,
-                                       orthography: WCDBCursorInfo.orthography,
-                                       invoking: { (tag, _, _, stop) in
-                                        optionalLemma = tag.lowercased()
-                                        stop = true
-        })
+        optionalLemma = string
+//        string.enumerateLinguisticTags(in: string.startIndex..<string.endIndex,
+//                                       scheme: NSLinguisticTagScheme.lemma.rawValue,
+//                                       options: NSLinguisticTagger.Options.omitWhitespace,
+//                                       orthography: WCDBCursorInfo.orthography,
+//                                       invoking: { (tag, _, _, stop) in
+//                                        optionalLemma = tag.lowercased()
+//                                        stop = true
+//        })
         guard let lemma = optionalLemma,
             lemma.count > 0,
             lemma.caseInsensitiveCompare(string) != ComparisonResult.orderedSame else {
