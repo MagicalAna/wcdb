@@ -24,7 +24,7 @@ public protocol TableCodableBase {}
 
 public protocol TableEncodableBase: Encodable, TableCodableBase {}
 
-public protocol TableEncodable: TableEncodableBase where CodingKeys.Root == Self {
+public protocol TableEncodable: TableEncodableBase {
     associatedtype CodingKeys: CodingTableKey
     typealias Properties = CodingKeys
 
