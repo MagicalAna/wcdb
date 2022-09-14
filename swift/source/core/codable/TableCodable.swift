@@ -45,7 +45,7 @@ extension TableEncodable {
 
 public protocol TableDecodableBase: Decodable, TableCodableBase {}
 
-public protocol TableDecodable: TableDecodableBase where CodingKeys.Root == Self {
+public protocol TableDecodable: TableDecodableBase {
     associatedtype CodingKeys: CodingTableKey
     typealias Properties = CodingKeys
 }
